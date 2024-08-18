@@ -1,7 +1,17 @@
 package signal.minervini.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 import signal.minervini.entity.StockEntity;
 
-public interface StockRepository extends JpaRepository<StockEntity, Long> {
+import java.util.UUID;
+
+public interface StockRepository extends JpaRepository<StockEntity, UUID> {
+    @Modifying
+    @Transactional
+    @Query("DELETE FROM StockEntity WHERE ticker = :ticker")
+    void deleteByTicker(@Param("ticker") String ticker);
 }
