@@ -4,8 +4,11 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-    <changeSet id="MN-0002" author="hvoquan">
-        <dropColumn tableName="stock_entity" columnName="ticker_name"/>
+    <changeSet id="MN-0003-drop-stock-entity-table" author="hvoquan">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="stock_entity"/>
+        </preConditions>
+        <dropTable tableName="stock_entity"/>
     </changeSet>
 
 </databaseChangeLog>
