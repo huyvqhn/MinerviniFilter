@@ -31,12 +31,13 @@ public class MinerviniStocksController {
 
     @GetMapping("/add")
     @ResponseBody
-    public ResponseEntity<String> addNewStock(@RequestParam(required = true) String ticker) {
+    public ResponseEntity<String> addNewStock(@RequestParam(required = true) String ticker,
+                                              @RequestParam(required = false) String name) {
         if (!StringUtils.hasText(ticker)) {
             return ResponseEntity.badRequest().body("Invalid input for parameter tickerName");
         }
         try {
-            stockService.createStock(ticker.toUpperCase(Locale.ROOT));
+            stockService.createStock(ticker.toUpperCase(Locale.ROOT), name);
         } catch (Exception e) {
             return new ResponseEntity<>("Add new stock failed " + e.getMessage() + "//\n"
                     + e.getCause(), HttpStatus.FORBIDDEN);

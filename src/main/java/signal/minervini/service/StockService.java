@@ -17,9 +17,10 @@ public class StockService {
         return stockRepository.findAll();
     }
 
-    public boolean createStock(String ticker) {
+    public boolean createStock(String ticker, String name) {
         StockEntity stockToCreate = new StockEntity();
         stockToCreate.setTicker(ticker);
+        stockToCreate.setName(name);
         try {
             stockRepository.saveAndFlush(stockToCreate);
             return true;
