@@ -8,6 +8,8 @@
     <include file="db/changelog/schema/MN-0003-add-user-table.xml"/>
     <include file="db/changelog/schema/MN-0003-add-stocks-table.xml"/>
     <include file="db/changelog/schema/MN-0003-drop-stock-entity-table.xml"/>
+    <include file="db/changelog/schema/MN-0006-alter-users-table.xml"/>
+    <include file="db/changelog/schema/MN-0005-add-authorities-table.xml"/>
 
 
 </databaseChangeLog>
