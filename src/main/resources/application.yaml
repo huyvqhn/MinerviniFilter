@@ -36,6 +36,21 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+  app:
+    jwtSecret: mySecretKey123912738aopsgjnspkmndfsopkvajoirjg94gf2opfng2moknm
+    jwtExpirationMs: 3000000
+  security:
+    user:
+      name: admin
+      password: demo@123
 
-
-
+# Spring security
+#  jwtCookieName: minerviniCookie
+#  jwtSecret: 123xxx123
+#  jwtExpirationMs: 86400000
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        beans:
+#          factory: DEBUG

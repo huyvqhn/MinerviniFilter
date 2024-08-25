@@ -30,7 +30,7 @@ public class UserService {
 
     public boolean deleteUser(String userName) {
         try {
-            userRepository.deleteByUsername(userName);
+            userRepository.deleteByUserName(userName);
         } catch (Exception e) {
             return false;
         }
